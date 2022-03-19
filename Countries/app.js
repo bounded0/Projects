@@ -1,8 +1,15 @@
 const countryContainer = document.querySelector(".country-container");
-console.log(countryContainer)
+const searchInput = document.querySelector("#country-input")
+const searchBtn = document.querySelector(".btn-search")
+
+//console.log(countryContainer)
+
+
+
 const initCountry = async () => {
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 1000; i++) {
     await getCountry(i);
+    console.log(i)
   }
 };
 const getCountry = async (name) => {
@@ -12,12 +19,20 @@ const getCountry = async (name) => {
   createCountry(data[name]);
   //console.log(data[name].name +" "+ data[name].languages[0].name );
 };
+
+
+
+
+
+
+
+
 const createCountry = (country) => {
-    
+
   const name = country.name;
   const languages = country.languages[0].name;
   const flags = country.flags.png;
-  console.log(name + " " + languages);
+
 
   const countryEl = document.createElement("div");
   countryEl.classList.add("country-box");
@@ -33,4 +48,24 @@ const createCountry = (country) => {
 
 };
 initCountry();
+
+searchInput.addEventListener("input",function(e){
+  const countryNames = document.querySelectorAll(".country-name")
+  console.log(countryNames)
+  const search = searchInput.value.toLowerCase();
+  const countries = document.querySelectorAll("country-box");
+
+  countryNames.forEach((countryName) => {
+    countryName.parentElement.style.display = 'block';
+    if(!countryName.innerHTML.toLowerCase().includes(search)){
+    countryName.parentElement.style.display = 'none';
+
+      
+    }
+
+  })
+
+
+  
+})
 
