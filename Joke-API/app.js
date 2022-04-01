@@ -37,7 +37,7 @@ const dataTwo = (joke)=>{
     jokeContainer.appendChild(jokeEl)
 
 
-
+sdssd
 }
 const dataSingle = (joke)=>{
     console.log(joke.joke + "SINGLE")
@@ -46,7 +46,12 @@ const dataSingle = (joke)=>{
 }
 const deleteJoke = ()=>{
     jokeContainer.innerHTML = ""
-    
+
+}
+    const deleteJoke1 = ()=>{
+       
+        jokeContainer.removeChild(jokeContainer.firstChild)
+        
 }
 
 
